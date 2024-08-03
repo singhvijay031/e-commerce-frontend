@@ -15,7 +15,7 @@ const NavBar = () => {
               type="text"
               placeholder="Search Products..."
             />
-            <FaSearch className=" absolute top-3 right-3 text-red-500"></FaSearch>
+            <FaSearch className=" absolute top-3 right-3 text-red-500 cursor-pointer"></FaSearch>
           </form>
         </div>
         <div className=" flex items-center space-x-4">
