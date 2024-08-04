@@ -1,5 +1,5 @@
 import { Categories } from "../assets/mockData";
-import Hero from "../assets/images/hero-img.jpg";
+import Hero from "../assets/images/hero-img.png";
 import InfoSection from "../components/InfoSection";
 import CategorySection from "../components/CategorySection";
 
