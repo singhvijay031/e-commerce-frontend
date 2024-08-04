@@ -5,10 +5,11 @@ import CategorySection from "../components/CategorySection";
 import { setProducts } from "../redux/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.product);
+  const products = useSelector((state) => state.product.products);
 
   useEffect(() => {
     dispatch(setProducts(mockData));
@@ -55,8 +56,8 @@ const Home = () => {
       <div>
         <h2>Top Products</h2>
         <div>
-          {products.products.slice(0, 5).map((product, index) => (
-            <div key={index}>{product.name}</div>
+          {products.slice(0, 5).map((product, index) => (
+            <ProductCard key={index} product={product} />
           ))}
         </div>
       </div>
