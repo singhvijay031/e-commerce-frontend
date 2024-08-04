@@ -1,4 +1,5 @@
 import { Categories } from "../assets/mockData";
+import Hero from "../assets/images/hero-img.jpg";
 
 const Home = () => {
   return (
@@ -13,8 +14,15 @@ const Home = () => {
               ))}
             </ul>
           </div>
-
-          <div></div>
+          <div>
+            <img src={Hero} alt="" />
+            <div>
+              <p>Vijay | Fancy Store</p>
+              <h2>Welcome to e-Shop </h2>
+              <p>MILLIONS + PRODUCTS</p>
+              <button>SHOP NOW</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
