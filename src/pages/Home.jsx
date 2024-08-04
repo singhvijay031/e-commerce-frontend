@@ -25,8 +25,8 @@ const Home = () => {
         <div className=" w-full md:w-9/12 mt-8 md:mt-0 h-96 relative">
           <img src={Hero} alt="Hero-Image" className=" h-full w-full" />
           <div className=" absolute top-16 left-8">
-            <p className="  font-bold mb-4">Vijay | Fancy Store</p>
-            <h2 className=" text-3xl font-bold">Welcome to e-Shop </h2>
+            <p className="  font-bold mb-4">Vijay Fancy Store</p>
+            <h2 className=" text-3xl font-bold">Welcome To E-SHOP </h2>
             <p className=" text-xl mt-2.5 font-bold text-gray-800">
               MILLIONS + PRODUCTS
             </p>
