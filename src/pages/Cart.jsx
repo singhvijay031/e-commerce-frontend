@@ -1,19 +1,22 @@
 import { useSelector } from "react-redux";
 import EmptyCart from "../assets/images/emptycart1.png";
 import { FaTrashAlt } from "react-icons/fa";
+import { useState } from "react";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const [address, setAddress] = useState("kathmandu-32");
+
   return (
-    <div className=" container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24">
+    <div className="container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24">
       {cart.products.length > 0 ? (
         <div>
-          <h3 className=" text-2xl font-semibold mb-4">SHOPPING CART</h3>
-          <div className=" flex flex-col md:flex-row justify-between space-x-10 mt-8">
-            <div className=" md:w-2/3">
-              <div className=" flex justify-between border-b items-center mb-4 text-xs font-bold">
-                <p>PRODUCTS</p>
-                <div className=" flex space-x-8">
+          <h3 className="text-2xl font-semibold mb-6">SHOPPING CART</h3>
+          <div className="flex flex-col md:flex-row justify-between mt-8">
+            <div className="md:w-2/3">
+              <div className="flex justify-between border-b items-center mb-4 text-xs font-bold">
+                <p className="w-2/5">PRODUCTS</p>
+                <div className="flex w-3/5 justify-between">
                   <p>PRICE</p>
                   <p>QUANTITY</p>
                   <p>SUBTOTAL</p>
@@ -24,31 +27,33 @@ const Cart = () => {
                 {cart.products.map((product) => (
                   <div
                     key={product.id}
-                    className=" flex items-center justify-between p-3 border-b"
+                    className="flex items-center justify-between p-3 border-b"
                   >
-                    <div className=" md:flex items-center space-x-4">
+                    <div className="flex items-center space-x-4 w-2/5">
                       <img
                         src={product.image}
                         alt={product.image}
-                        className=" w-16 h-16 object-contain rounded"
+                        className="w-16 h-16 object-contain rounded"
                       />
-                      <div className=" flex-1 ml-4">
-                        <h3 className=" text-lg font-semibold">
+                      <div>
+                        <h3 className="text-lg font-semibold">
                           {product.name}
                         </h3>
                       </div>
                     </div>
-                    <div className=" flex space-x-12 items-center">
-                      <p>Rs.{product.price}</p>
-                      <div className=" flex items-center justify-center border">
-                        <button className=" text-xl font-bold px-1.5 border-r">
+                    <div className="flex w-3/5 justify-between items-center">
+                      <p className="w-1/4">Rs. {product.price}</p>
+                      <div className="flex items-center justify-center border w-1/4">
+                        <button className="text-xl font-bold px-1.5 border-r">
                           -
                         </button>
-                        <p className=" text-xl px-2">{product.quantity}</p>
-                        <button className=" text-xl px-1 border-1">+</button>
+                        <p className="text-xl px-2">{product.quantity}</p>
+                        <button className="text-xl px-1 border-l">+</button>
                       </div>
-                      <p>Rs.{(product.quantity * product.price).toFixed(2)}</p>
-                      <button className=" text-red-500 hover:text-red-700">
+                      <p className="w-1/4">
+                        Rs. {(product.quantity * product.price).toFixed(2)}
+                      </p>
+                      <button className="text-red-500 hover:text-red-700">
                         <FaTrashAlt />
                       </button>
                     </div>
@@ -56,11 +61,35 @@ const Cart = () => {
                 ))}
               </div>
             </div>
+            <div className="md:w-1/3 bg-white p-8 rounded-lg shadow-md border mt-6 md:mt-0 md:ml-10">
+              <h3 className="text-sm font-semibold mb-5">CART TOTAL</h3>
+              <div className="flex justify-between mb-5 border-b pb-1">
+                <span className="text-sm">Total Items:</span>
+                <span>{cart.totalQuantity}</span>
+              </div>
+              <div className="mb-4 border-b pb-2">
+                <p>Shipping:</p>
+                <div>
+                  <span>Shipping to:</span>
+                  <span className="text-xs font-bold">{address}</span>
+                  <button className="text-blue-500 hover:underline mt-1 ml-2">
+                    Change Address
+                  </button>
+                </div>
+              </div>
+              <div className="flex justify-between mb-4">
+                <span>Total Price:</span>
+                <span>Rs. {cart.totalPrice.toFixed(2)}</span>
+              </div>
+              <button className="w-full bg-red-600 text-white py-2 hover:bg-red-800">
+                Proceed To Checkout
+              </button>
+            </div>
           </div>
         </div>
       ) : (
-        <div className=" flex justify-center">
-          <img src={EmptyCart} alt="empty-cart" className=" h-96" />
+        <div className="flex justify-center">
+          <img src={EmptyCart} alt="empty-cart" className="h-96" />
         </div>
       )}
     </div>
