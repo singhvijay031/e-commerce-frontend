@@ -4,10 +4,10 @@ const initialState = {
   products: [],
 };
 
-const CartSlice = createSlice({
+const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {},
 });
 
-export default CartSlice.reducer;
+export default cartSlice.reducer;
