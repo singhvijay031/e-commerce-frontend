@@ -11,12 +11,12 @@ const Cart = () => {
     <div className="container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24">
       {cart.products.length > 0 ? (
         <div>
-          <h3 className="text-2xl font-semibold mb-6">SHOPPING CART</h3>
-          <div className="flex flex-col md:flex-row justify-between mt-8">
+          <h3 className="text-2xl font-semibold mb-4">SHOPPING CART</h3>
+          <div className="flex flex-col md:flex-row justify-between space-x-10 mt-8">
             <div className="md:w-2/3">
               <div className="flex justify-between border-b items-center mb-4 text-xs font-bold">
-                <p className="w-2/5">PRODUCTS</p>
-                <div className="flex w-3/5 justify-between">
+                <p>PRODUCT</p>
+                <div className=" flex space-x-8">
                   <p>PRICE</p>
                   <p>QUANTITY</p>
                   <p>SUBTOTAL</p>
