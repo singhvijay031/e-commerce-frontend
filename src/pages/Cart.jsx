@@ -2,10 +2,13 @@ import { useSelector } from "react-redux";
 import EmptyCart from "../assets/images/emptycart1.png";
 import { FaTrashAlt } from "react-icons/fa";
 import { useState } from "react";
+import Modal from "../components/Modal";
+import ChangeAddress from "../components/ChangeAddress";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [address, setAddress] = useState("kathmandu-32");
+  const [isModelOpen, setIsModelOpen] = useState(false);
 
   return (
     <div className="container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24">
@@ -72,7 +75,10 @@ const Cart = () => {
                 <div>
                   <span>Shipping to:</span>
                   <span className="text-xs font-bold">{address}</span>
-                  <button className="text-blue-500 hover:underline mt-1 ml-2">
+                  <button
+                    className="text-blue-500 hover:underline mt-1 ml-2"
+                    onClick={() => setIsModelOpen(true)}
+                  >
                     Change Address
                   </button>
                 </div>
@@ -86,6 +92,12 @@ const Cart = () => {
               </button>
             </div>
           </div>
+          <Modal isModelOpen={isModelOpen} setIsModelOpen={setIsModelOpen}>
+            <ChangeAddress
+              setAddress={setAddress}
+              setIsModelOpen={setIsModelOpen}
+            />
+          </Modal>
         </div>
       ) : (
         <div className="flex justify-center">
