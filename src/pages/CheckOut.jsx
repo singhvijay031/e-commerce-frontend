@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const CheckOut = () => {
   const [billingToggle, setBillingToggle] = useState(true);
   const [shippingToggle, setShippingToggle] = useState(false);
   const [paymentToggle, setPaymentToggle] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState();
+  const [paymentMethod, setPaymentMethod] = useState("card");
+  const cart = useSelector((state) => state.cart);
 
   return (
     <div className="container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24">
@@ -178,7 +180,39 @@ const CheckOut = () => {
           </div>
         </div>
 
-        <div className="md:w-1/3 bg-white p-8 rounded-lg shadow-md border mt-6 md:mt-0 md:ml-10"></div>
+        <div className="md:w-1/3 bg-white p-8 rounded-lg shadow-md border mt-6 md:mt-0 md:ml-10">
+          <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
+          <div className="space-y-4">
+            {cart.products.map((product) => (
+              <div key={product.id} className="flex justify-between">
+                <div className="flex items-center">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-16 h-16 object-contain rounded"
+                  />
+                </div>
+                <div className="ml-4">
+                  <h4 className="text-md font-semibold">{product.name}</h4>
+                  <p className="text-gray-600">
+                    Rs.{product.price} x {product.quantity}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 border-t pt-4">
+            <div className="flex justify-between text-gray-700">
+              <span>Total Price:</span>
+              <span className="font-semibold">
+                Rs.{cart.totalPrice.toFixed(2)}
+              </span>
+            </div>
+          </div>
+          <button className="w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800 rounded">
+            Place Order
+          </button>
+        </div>
       </div>
     </div>
   );
