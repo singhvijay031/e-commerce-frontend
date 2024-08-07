@@ -7,6 +7,11 @@ const CheckOut = () => {
   const [shippingToggle, setShippingToggle] = useState(false);
   const [paymentToggle, setPaymentToggle] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [shippingInfo, setShippingInfo] = useState({
+    address: "",
+    city: "",
+    zip: "",
+  });
   const cart = useSelector((state) => state.cart);
 
   return (
@@ -69,6 +74,12 @@ const CheckOut = () => {
                   name="address"
                   placeholder="Enter Address"
                   className="w-full px-3 py-2 border rounded-lg"
+                  onChange={(e) =>
+                    setShippingInfo({
+                      ...shippingInfo,
+                      address: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div>
@@ -78,6 +89,12 @@ const CheckOut = () => {
                   name="city"
                   placeholder="Enter City Name"
                   className="w-full px-3 py-2 border rounded-lg"
+                  onChange={(e) =>
+                    setShippingInfo({
+                      ...shippingInfo,
+                      city: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div>
@@ -87,11 +104,18 @@ const CheckOut = () => {
                   name="zip"
                   placeholder="Enter Zip Code"
                   className="w-full px-3 py-2 border rounded-lg"
+                  onChange={(e) =>
+                    setShippingInfo({
+                      ...shippingInfo,
+                      zip: e.target.value,
+                    })
+                  }
                 />
               </div>
             </div>
           </div>
 
+          {/* payment method */}
           <div className="border p-6 mb-6 rounded-lg shadow-md">
             <div
               className="flex items-center justify-between mb-4 cursor-pointer"
