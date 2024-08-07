@@ -6,6 +6,7 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import CheckOut from "./pages/CheckOut";
 import { useState } from "react";
+import Order from "./pages/Order";
 
 function App() {
   const [order, setOrder] = useState(null);
@@ -22,7 +23,7 @@ function App() {
         ></Route>
         <Route
           path="/order-confirmation"
-          element={<CheckOut order={order} />}
+          element={<Order order={order} />}
         ></Route>
       </Routes>
       <Footer />
