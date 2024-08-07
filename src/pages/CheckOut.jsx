@@ -137,6 +137,7 @@ const CheckOut = () => {
                       name="cardNumber"
                       placeholder="Enter Card Number"
                       className="w-full px-3 py-2 border rounded-lg"
+                      required
                     />
                   </div>
                   <div>
@@ -148,6 +149,7 @@ const CheckOut = () => {
                       name="expirationDate"
                       placeholder="MM/YY"
                       className="w-full px-3 py-2 border rounded-lg"
+                      required
                     />
                   </div>
                   <div>
@@ -157,6 +159,7 @@ const CheckOut = () => {
                       name="cvv"
                       placeholder="Enter CVV"
                       className="w-full px-3 py-2 border rounded-lg"
+                      required
                     />
                   </div>
                   <div>
@@ -166,6 +169,7 @@ const CheckOut = () => {
                       name="cardName"
                       placeholder="Enter Name on Card"
                       className="w-full px-3 py-2 border rounded-lg"
+                      required
                     />
                   </div>
                 </>
