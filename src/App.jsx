@@ -20,6 +20,10 @@ function App() {
           path="/checkout"
           element={<CheckOut setOrder={setOrder} />}
         ></Route>
+        <Route
+          path="/order-confirmation"
+          element={<CheckOut order={order} />}
+        ></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
