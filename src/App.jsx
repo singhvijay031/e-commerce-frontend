@@ -5,8 +5,10 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import CheckOut from "./pages/CheckOut";
+import { useState } from "react";
 
 function App() {
+  const [order, setOrder] = useState(null);
   return (
     <BrowserRouter>
       <NavBar />
@@ -14,7 +16,10 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
-        <Route path="/checkout" element={<CheckOut />}></Route>
+        <Route
+          path="/checkout"
+          element={<CheckOut setOrder={setOrder} />}
+        ></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

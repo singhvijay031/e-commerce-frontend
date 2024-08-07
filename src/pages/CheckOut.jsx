@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const CheckOut = () => {
+const CheckOut = ({ setOrder }) => {
   const [billingToggle, setBillingToggle] = useState(true);
   const [shippingToggle, setShippingToggle] = useState(false);
   const [paymentToggle, setPaymentToggle] = useState(false);
@@ -13,6 +15,18 @@ const CheckOut = () => {
     zip: "",
   });
   const cart = useSelector((state) => state.cart);
+  const navigate = useNavigate();
+
+  const handleOrder = () => {
+    const newOrder = {
+      products: cart.products,
+      orderNumber: "12345",
+      shippingInformation: shippingInfo,
+      totalPrice: cart.totalPrice,
+    };
+    setOrder(newOrder);
+    navigate("/order-confirmation");
+  };
 
   return (
     <div className="container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24">
@@ -233,7 +247,10 @@ const CheckOut = () => {
               </span>
             </div>
           </div>
-          <button className="w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800 rounded">
+          <button
+            className="w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800 rounded"
+            onClick={handleOrder()}
+          >
             Place Order
           </button>
         </div>
