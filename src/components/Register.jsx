@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-const Register = () => {
+const Register = ({ openLogin }) => {
   return (
     <div>
       <h2 className=" text-2xl font-bold mb-4">Sign Up</h2>
@@ -40,7 +41,9 @@ const Register = () => {
 
       <div className=" text-center">
         <span className=" text-gray-700">Already Have an Account?</span>
-        <button className=" text-red-800">Login</button>
+        <button className=" text-red-800" onClick={openLogin}>
+          Login
+        </button>
       </div>
     </div>
   );
