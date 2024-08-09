@@ -2,7 +2,7 @@ import { Categories, mockData } from "../assets/mockData";
 import Hero from "../assets/images/hero-img.png";
 import InfoSection from "../components/InfoSection";
 import CategorySection from "../components/CategorySection";
-import { setProducts } from "../redux/ProductSlice";
+import { setProducts } from "../redux/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import ProductCard from "../components/ProductCard";
