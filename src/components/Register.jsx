@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/no-unescaped-entities */
+
 const Register = ({ openLogin }) => {
   return (
     <div>
